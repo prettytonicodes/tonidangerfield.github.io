@@ -24,9 +24,29 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     
+    //console.log(start, end); // 5, 1
+    //create an empty array to collect integers in range
+    //Create conditional statement (if/else-if) comparing start less than end
+    //use a for loop to loop over array elements, incrementing
+    //push elements into empty array
+    //2nd case (else-if), compare start greater than end
+    //use a for loop to loop over array elements, decrementing
+    //push elements into empty array
+    //outside of conditional statement, return the array - rangeIntegers (it will either be integers incrementing or decrementer per condition that passed)
+    let rangeIntegers = [];
     
-    
-    
+    if(start < end) {
+    for(let i = start; i <= end; i++) {
+        rangeIntegers.push(i);
+    }
+    } 
+    else if(start > end) {
+        for(let i = start; i >= end; i--) {
+            rangeIntegers.push(i);
+        }
+    }
+   
+    return rangeIntegers;
     // YOUR CODE GOES ABOVE HERE //
 }
 

@@ -14,8 +14,14 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //use conditional statement to test if array is an array via Array.isArray() method
+    //return true if an array
+    //else, return false
+    if(Array.isArray(value)) {
+        return true;
+    } else {
+        return false;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -31,10 +37,37 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
+    //Make a conditional statement using if, else-if... to check for value type and return boolean
+    //Could be a number, so I have to handle numbers too!
+    //check if value is array using Array.isArray, as typeof will return 'object'
+    if(Array.isArray(value)) {
+        return false;
+    }
+    //check if value is null, not using typeof operator, which would return 'object'
+    else if(value === null) {
+        return false;
+    }
+    //check for instanceof Date, not using typeof operator, which would return 'object'
+    else if(value instanceof Date) {
+        return false;
+    }
+    //use typeof operator to check remaining value types...
+    else if(typeof value === 'number') {
+        return false;
+    }
+    else if(typeof value === 'string') {
+        return false;
+    }
+    else if(typeof value === 'boolean') {
+        return false;
+    }
+    else if(typeof value === 'object') {
+        return true;
+
+    }
+   
     
-    
-    
-    
+ 
     // YOUR CODE ABOVE HERE //
 }
 
@@ -46,8 +79,33 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //Make a conditional statement using if, else-if... to check for value types and return boolean of false if not Array or Object as collection
+    //use typeof operator for all value types except null, Date, & Array
+    //Check for typeof object last, as other value types will be considered objects, if special operators aren't used to check for value types
+    if(value === null) {
+        return false;
+    }
+    else if(value instanceof Date) {
+        return false;
+    }
+    else if(typeof value === 'number') {
+        return false;
+    }
+    else if(typeof value === 'boolean') {
+        return false;
+    }
+    else if(typeof value === 'number') {
+        return false;
+    }
+    else if(typeof value === 'string') {
+        return false;
+    }
+    else if(Array.isArray(value)) {
+        return true;
+    }
+    else if(typeof value === 'object') {
+        return true;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -74,7 +132,38 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    //Use conditional if/else-if statements to test value type with appropriate operators
     
+    if(typeof value === 'string') {
+        return 'string';
+    }
+    else if(value === undefined) {
+        return 'undefined';
+    }
+    else if(typeof value === 'number') {
+        return 'number';
+    }
+    else if(typeof value === 'boolean') {
+        return 'boolean';
+    }
+    else if(typeof value === 'function') {
+        return 'function';
+    }
+    else if(Array.isArray(value)) {
+        return 'array';
+    }
+    else if(isNaN(value)) {
+        return 'NaN';
+    }
+    else if(value === null) {
+        return 'null';
+    }
+    else if(value instanceof Date) {
+        return 'date';
+    }
+    else if(typeof value === 'object') {
+        return 'object';
+    }
     
     
     
